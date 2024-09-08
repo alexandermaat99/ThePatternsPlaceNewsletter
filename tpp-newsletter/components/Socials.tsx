@@ -1,4 +1,4 @@
-import { socials } from "@/constatns";
+import { socials } from "@/constants";
 import { SocialIcon } from "react-social-icons";
 
 function Socials() {
