@@ -7,7 +7,7 @@ function Socials() {
       {socials.map((social) => (
         <div
           key={social.id}
-          className="flex items-center justify-center flex-1 animate-fade-in-3 cursor-pointer group md:hover:shadow-outline-gray rounded-[9px] p-5 md:p-10 transition duration-200 ease-out"
+          className="flex items-center justify-center flex-1 animate-fade-in cursor-pointer group md:hover:shadow-outline-gray rounded-[9px] p-5 md:p-10 transition duration-200 ease-out"
         >
           <SocialIcon
             url={social.url}

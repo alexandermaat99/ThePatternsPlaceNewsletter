@@ -4,7 +4,7 @@ import Socials from "@/components/Socials";
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-center p-10 min-h-screen">
+    <main className="flex flex-col items-center justify-center p-10 min-h-screen bg-tppBackground">
       {<HeroText />}
       {<NewsletterForm />}
       {<Socials />}

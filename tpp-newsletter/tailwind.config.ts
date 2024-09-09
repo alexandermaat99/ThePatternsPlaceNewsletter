@@ -6,6 +6,10 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    colors: {
+      tppBackground: "#FFEFE1",
+      tppBlack: "#383838",
+    },
     extend: {
       fontFamily: {
         space: ["var(--font-space-grotesk)"], // Use the Google font variable here

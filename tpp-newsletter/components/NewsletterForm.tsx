@@ -58,10 +58,7 @@ function NewsletterForm() {
 
   return (
     <div className="flex flex-col space-y-8 md:w-[400px]">
-      <form
-        onSubmit={handleSubmit}
-        className="newsletter-form mt-10 animate-fade-in-3"
-      >
+      <form onSubmit={handleSubmit} className="newsletter-form mt-10 ">
         <div className="group flex items-center gap-x-4 py-1 pl-4 pr-1 rounded-[9px] bg-[#090D11] hover:bg-[#15141B] shadow-outline-gray hover:shadow-transparent focus-within:bg-[#15141B] focus-within:!shadow-outline-gray-focus transition-all duration-300">
           <EnvelopeIcon className="hidden sm:inline w-6 h-6 text-[#4B4C52] group-focus-within:text-white group-hover:text-white transition-colors duration-300" />
           <input
