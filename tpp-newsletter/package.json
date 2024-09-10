@@ -12,7 +12,7 @@
     "@heroicons/react": "^2.1.5",
     "@mailchimp/mailchimp_marketing": "^3.0.80",
     "gsap": "^3.12.5",
-    "next": "^14.2.8",
+    "next": "^14.2.9",
     "next-sitemap": "^4.2.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
