@@ -9,6 +9,10 @@ module.exports = {
     colors: {
       tppBackground: "#FFEFE1",
       tppBlack: "#383838",
+      tppPink: "#FFA794",
+      tppUnSelectedPink: "#FFE0D9",
+      tppNotSelectedGray: "#C7C7C7",
+      tppWhite: "#FFFFFF",
     },
     extend: {
       fontFamily: {

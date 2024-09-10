@@ -1,6 +1,8 @@
+import TPP_SVG from "@/public/images/TPP_SVG.svg";
+
 function HeroText() {
   return (
-    <div className="m-4 mb-10 space-y-1 content-center text-center">
+    <div className="m-4 mb-10 space-y-26 content-center text-center">
       <h1 className="text-tppBlack font-space z-10 text-5xl sm:text-6xl md:text-7xl lg:text-[80px] xl:text-[100px] text-center whitespace-nowrap bg-clip-text">
         Welcome to <br />
         <span className="text-tppBlack font-bold font-space flex items-center justify-center animate-fade-in text-4xl sm:text-5xl md:text-6xl lg:text-[80px] xl:text-[100px]">
@@ -15,10 +17,18 @@ function HeroText() {
       <p className="text-tppBlack font-inter font-normal leading-normal text-base sm:text-lg md:text-xl">
         We&apos;re a place <span className="font-extrabold">for sewists</span>{" "}
         to buy and sell patterns with features like video tutorials, reviews,
-        and difficulty levels! <br /> We&apos;re currently under construction
-        but would love to keep in contact. Drop your email below to stay
-        updated!
+        and difficulty levels!{" "}
+        <span className="hidden sm:inline">
+          {" "}
+          <br />{" "}
+        </span>
+        We&apos;re currently under construction but would love to keep in
+        contact. Drop your email below to stay updated!
       </p>
+
+      <div className="flex justify-center mt-4">
+        <TPP_SVG />
+      </div>
     </div>
   );
 }

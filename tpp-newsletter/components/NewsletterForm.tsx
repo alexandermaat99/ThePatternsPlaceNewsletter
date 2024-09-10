@@ -57,23 +57,23 @@ function NewsletterForm() {
   };
 
   return (
-    <div className="flex flex-col space-y-8 md:w-[400px]">
-      <form onSubmit={handleSubmit} className="newsletter-form mt-10 ">
-        <div className="group flex items-center gap-x-4 py-1 pl-4 pr-1 rounded-[9px] bg-[#090D11] hover:bg-[#15141B] shadow-outline-gray hover:shadow-transparent focus-within:bg-[#15141B] focus-within:!shadow-outline-gray-focus transition-all duration-300">
-          <EnvelopeIcon className="hidden sm:inline w-6 h-6 text-[#4B4C52] group-focus-within:text-white group-hover:text-white transition-colors duration-300" />
+    <div className="flex flex-col md:w-[400px]">
+      <form onSubmit={handleSubmit} className="newsletter-form ">
+        <div className="group flex items-center gap-x-4 py-1 pl-4 pr-1 rounded-[9px] bg-tppWhite hover:bg-[#15141B]  focus-within:bg-[#15141B] focus-within:!shadow-outline-gray-focus transition-all duration-300">
+          <EnvelopeIcon className="hidden sm:inline w-6 h-6 text-tppNotSelectedGray group-focus-within:text-white group-hover:text-white transition-colors duration-300" />
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Email address"
             required
             type="email"
-            className="flex-1 text-white text-sm sm:text-base outline-none placeholder-[#4B4C52] group-focus-within:placeholder-white bg-transparent placeholder:transition-colors placeholder:duration-300"
+            className="flex-1 text-white text-sm sm:text-base outline-none placeholder-tppNotSelectedGray group-focus-within:placeholder-white bg-transparent placeholder:transition-colors placeholder:duration-300"
           />
           <button
             ref={buttonRef}
             className={`${
               active && "active"
-            } disabled:!bg-[#17141F] disabled:grayscale-[65%] disabled:opacity-50  text-sm md:text-base`}
+            } disabled:!bg-tppNotSelectedGray disabled:grayscale-[65%] disabled:opacity-50  text-sm md:text-base`}
             disabled={!input}
             type="submit"
           >
@@ -98,11 +98,11 @@ function NewsletterForm() {
 
       <div className="relative">
         {(successMessage || errorMessage) && (
-          <div className="flex items-start space-x-2 bg-[#0A0E12] shadow-outline-gray text-white rounded-[9px] py-4 px-6 animate-fade-bottom absolute">
-            <div className="h-6 w-6 bg-[#1B2926] flex items-center justify-center rounded-full border border-[#273130] flex-shrink-0">
-              <CheckIcon className="h-4 w-4 text-[#81A89A]" />
+          <div className="flex items-start space-x-2 bg-tppPink shadow-outline-gray text-white rounded-[9px] py-4 px-6 animate-fade-bottom absolute">
+            <div className="h-6 w-6 bg-tppUnSelectedPink flex items-center justify-center rounded-full border border-[#273130] flex-shrink-0">
+              <CheckIcon className="h-4 w-4 text-tppPink" />
             </div>
-            <div className="text-xs sm:text-sm text-[#4B4C52]">
+            <div className="text-xs sm:text-sm text-tppBlack">
               {successMessage ? (
                 <p>
                   We&apos;ve added{" "}
@@ -119,7 +119,7 @@ function NewsletterForm() {
               )}
             </div>
             <XMarkIcon
-              className="h-5 w-5 cursor-pointer flex-shrink-0 text-[#4A4B55]"
+              className="h-5 w-5 cursor-pointer flex-shrink-0 text-tppBlack"
               onClick={dismissMessages}
             />
           </div>
