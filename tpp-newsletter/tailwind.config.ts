@@ -19,8 +19,8 @@ module.exports = {
         space: ["var(--font-space-grotesk)"], // Use the Google font variable here
       },
       boxShadow: {
-        "outline-gray-focus": "inset 0 0 0 1.5px #222127",
-        "outline-gray": "inset 0 0 0 1.5px #131317",
+        "outline-pink-focus": "inset 0 0 0 1.5px #FFA794",
+        "outline-pink": "inset 0 0 0 1.5px #FFA794",
       },
       animation: {
         "fade-in-3": "fade-in 3s ease-in-out forwards",

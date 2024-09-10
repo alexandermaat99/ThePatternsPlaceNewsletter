@@ -59,8 +59,8 @@ function NewsletterForm() {
   return (
     <div className="flex flex-col md:w-[400px]">
       <form onSubmit={handleSubmit} className="newsletter-form ">
-        <div className="group flex items-center gap-x-4 py-1 pl-4 pr-1 rounded-[9px] bg-tppWhite hover:bg-[#15141B]  focus-within:bg-[#15141B] focus-within:!shadow-outline-gray-focus transition-all duration-300">
-          <EnvelopeIcon className="hidden sm:inline w-6 h-6 text-tppNotSelectedGray group-focus-within:text-white group-hover:text-white transition-colors duration-300" />
+        <div className="group flex items-center gap-x-4 py-1 pl-4 pr-1 rounded-[9px] bg-tppWhite hover:shadow-outline-pink  focus-within:!shadow-outline-pink-focus transition-all duration-300">
+          <EnvelopeIcon className="hidden sm:inline w-6 h-6 text-tppNotSelectedGray group-focus-within:text-tppPink group-hover:text-white transition-colors duration-300" />
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
@@ -98,7 +98,7 @@ function NewsletterForm() {
 
       <div className="relative">
         {(successMessage || errorMessage) && (
-          <div className="flex items-start space-x-2 bg-tppPink shadow-outline-gray text-white rounded-[9px] py-4 px-6 animate-fade-bottom absolute">
+          <div className="flex items-start space-x-2 bg-tppPink shadow-outline-pink text-white mt-3 rounded-[9px] py-4 px-6 animate-fade-bottom absolute">
             <div className="h-6 w-6 bg-tppUnSelectedPink flex items-center justify-center rounded-full border border-[#273130] flex-shrink-0">
               <CheckIcon className="h-4 w-4 text-tppPink" />
             </div>
