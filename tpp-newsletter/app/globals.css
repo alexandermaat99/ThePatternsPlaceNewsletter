@@ -16,16 +16,16 @@
   }
 
   .newsletter-form {
-    --primary: #8c4ec2;
-    --primary-dark: #6b21a8;
-    --primary-darkest: #640707;
-    --input-placeholder: #a6accd;
+    --primary: #ffa794;
+    --primary-dark: #d87e6a;
+    --primary-darkest: #b15c4a;
+    --input-placeholder: #cda6a6;
     --input-text: #646b8c;
     --border-default: #e1e6f9;
     --border-active: #8c4ec2;
     --background: #fff;
     --button-text: #ffffff;
-    --success: #8c4ec2;
+    --success: #ffa794;
     --trails: rgb(140, 78, 194, 0.15);
   }
 
