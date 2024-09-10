@@ -73,7 +73,7 @@ function NewsletterForm() {
             ref={buttonRef}
             className={`${
               active && "active"
-            } disabled:!bg-tppNotSelectedGray disabled:grayscale-[65%] disabled:opacity-50  text-sm md:text-base`}
+            } disabled:!bg-tppNotSelectedGray  disabled:opacity-50  text-sm md:text-base`}
             disabled={!input}
             type="submit"
           >
