@@ -60,7 +60,7 @@ function NewsletterForm() {
     <div className="flex flex-col md:w-[400px]">
       <form onSubmit={handleSubmit} className="newsletter-form ">
         <div className="group flex items-center gap-x-4 py-1 pl-4 pr-1 rounded-[9px] bg-tppWhite hover:shadow-outline-pink  focus-within:!shadow-outline-pink-focus transition-all duration-300">
-          <EnvelopeIcon className="hidden sm:inline w-6 h-6 text-tppNotSelectedGray group-focus-within:text-tppPink group-hover:text-white transition-colors duration-300" />
+          <EnvelopeIcon className="hidden sm:inline w-6 h-6 text-tppNotSelectedGray group-focus-within:text-tppPink group-hover:text-tppPink transition-colors duration-300" />
           <input
             value={input}
             onChange={(e) => setInput(e.target.value)}

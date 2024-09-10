@@ -11,12 +11,12 @@ function Socials() {
         >
           <SocialIcon
             url={social.url}
-            fgColor="#22c8ff"
+            fgColor="#FFA794"
             bgColor="transparent"
             className="!h-16 !w-16"
           />
           <div className="text-xs sm:text-sm space-y-1">
-            <p className="text-[#22c8ff] group-hover:text-black transition font-medium">
+            <p className="text-tppPink group-hover:text-black transition font-medium">
               {social.name}
             </p>
             <p className="text-[#4B4C52]">{social.handle}</p>
