@@ -98,15 +98,15 @@ function NewsletterForm() {
 
       <div className="relative">
         {(successMessage || errorMessage) && (
-          <div className="flex items-start space-x-2 bg-tppPink shadow-outline-pink text-white mt-3 rounded-[9px] py-4 px-6 animate-fade-bottom absolute">
-            <div className="h-6 w-6 bg-tppUnSelectedPink flex items-center justify-center rounded-full border border-[#273130] flex-shrink-0">
+          <div className="flex items-start space-x-2 bg-tppWhite text-tppPink mt-3 rounded-[9px] py-4 px-6 animate-fade-bottom absolute">
+            <div className="h-6 w-6 bg-tppUnSelectedPink flex items-center justify-center rounded-full border border-tppPink flex-shrink-0">
               <CheckIcon className="h-4 w-4 text-tppPink" />
             </div>
             <div className="text-xs sm:text-sm text-tppBlack">
               {successMessage ? (
                 <p>
                   We&apos;ve added{" "}
-                  <span className="text-[#ADB0B1]">
+                  <span className="text-tppPink">
                     {successMessage.email_address}
                   </span>{" "}
                   to our waitlist. We&apos;ll let you know when we launch!
