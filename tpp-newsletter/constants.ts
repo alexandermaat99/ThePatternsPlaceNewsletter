@@ -17,7 +17,7 @@ export const socials = [
 
 const title = "The Pattern's Place";
 const description =
-  "A marketplace for sewists to buy and sell patterns with features like video tutorials, reviews, and community assigned difficulty levels!";
+  "The Pattern's Place is a marketplace for sewists to buy and sell patterns with features like video tutorials, reviews, and community assigned difficulty levels.";
 const image = "https://www.thepatternsplace.com/images/tppLogo.png";
 
 export const metaData: Metadata = {

@@ -14,10 +14,10 @@ function HeroText() {
           /> */}
         </span>
       </h1>
-      <p className="text-tppBlack font-inter font-normal leading-normal text-base sm:text-lg md:text-xl">
-        We&apos;re a place <span className="font-extrabold">for sewists</span>{" "}
-        to buy and sell patterns with features like video tutorials, reviews,
-        and difficulty levels!{" "}
+      <p className="text-tppBlack font-inter leading-normal text-base sm:text-lg md:text-xl">
+        We&apos;re a place <span className="font-bold">for sewists</span> to buy
+        and sell patterns with features like video tutorials, reviews, and
+        difficulty levels!{" "}
         <span className="hidden sm:inline">
           {" "}
           <br />{" "}

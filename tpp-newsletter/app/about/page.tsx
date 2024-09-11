@@ -14,9 +14,9 @@ export default function AboutPage() {
 
       <p className="font-space text-tppBlack text-lg leading-relaxed max-w-4xl">
         Welcome to <strong>The Pattern&apos;s Place</strong>, a marketplace
-        created by <strong>Gail, a professional sewist and patternmaker</strong>
-        , and <strong>Alex, a software developer</strong>. While platforms like
-        Etsy are great for selling, we wanted to create a platform specifically
+        under construction by <strong>Gail, a sewist and patternmaker</strong>,
+        and <strong>Alex, a software developer</strong>. While platforms like
+        Etsy are great, we wanted to create a platform that is specifically
         tailored to the {""}
         <strong>unique needs of sewists and patternmakers</strong>. Our
         marketplace serves those who sew as a hobby, as a lifestyle, and those
@@ -29,13 +29,13 @@ export default function AboutPage() {
         <strong>video tutorials</strong>, <strong>community reviews</strong>,
         and <strong>difficulty level ratings</strong>. Our goal is to build a
         supportive community where you can find and/or sell high-quality
-        patterns and enhance your sewing experience.
+        patterns and allow you to find your next favorite creator.
       </p>
 
       <p className="font-space text-tppBlack text-lg leading-relaxed max-w-4xl mt-4">
         We are currently under construction, but we&apos;d love to keep in touch
-        with you. Sign up for our newsletter below to get updates, exclusive
-        offers, and be the first to know when{" "}
+        with you. Sign up for our newsletter below to get updates, see our
+        progress, and be the first to know when{" "}
         <strong>The Pattern&apos;s Place</strong> launches!
       </p>
 
