@@ -8,7 +8,7 @@ export default function AboutPage() {
       <LearnMoreButton href="/" label="< Back to the signup page :)" />
 
       {/* Styled paragraph block */}
-      <h1 className="text-2xl font-bold text-tppBlack">
+      <h1 className="text-2xl font-space font-bold text-tppBlack">
         About The Pattern&apos;s Place
       </h1>
 
