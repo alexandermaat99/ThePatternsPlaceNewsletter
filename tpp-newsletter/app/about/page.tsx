@@ -29,7 +29,7 @@ export default function AboutPage() {
         <strong>video tutorials</strong>, <strong>community reviews</strong>,
         and <strong>difficulty level ratings</strong>. Our goal is to build a
         supportive community where you can find and/or sell high-quality
-        patterns and allow you to find your next favorite creator.
+        patterns while also helping you find your next favorite creator.
       </p>
 
       <p className="font-space text-tppBlack text-lg leading-relaxed max-w-4xl mt-4">
