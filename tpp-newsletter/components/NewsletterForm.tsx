@@ -68,7 +68,7 @@ function NewsletterForm() {
             required
             type="email"
             id="email"
-            className="flex-1 text-white text-sm sm:text-base outline-none placeholder-tppNotSelectedGray group-focus-within:placeholder-white bg-transparent placeholder:transition-colors placeholder:duration-300"
+            className="flex-1 text-white text-base sm:text-lg outline-none placeholder-tppNotSelectedGray group-focus-within:placeholder-white bg-transparent placeholder:transition-colors placeholder:duration-300"
           />
           <button
             ref={buttonRef}
