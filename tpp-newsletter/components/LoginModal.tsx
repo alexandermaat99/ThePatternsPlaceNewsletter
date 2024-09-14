@@ -71,6 +71,7 @@ export default function LoginModal() {
                 id="email"
                 type="email"
                 placeholder="Email"
+                // look at the newletter for better hover animation
                 className="w-full p-2 mb-4 border rounded-lg placeholder:text-tppNotSelectedGray text-tppBlack focus:outline-tppPink duration-400"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
