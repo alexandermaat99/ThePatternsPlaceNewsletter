@@ -2,11 +2,27 @@
 
 import { useState } from "react";
 import { supabase } from "../../lib/supabaseClient";
+import { useRouter } from "next/navigation";
+import BACK_ARROW from "@/public/images/BACK_ARROW.svg"; // Import the back arrow icon
 
 export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const router = useRouter(); // Initialize router here
+
+  const handleNavigateToTermsOfService = () => {
+    router.push("/terms-of-service"); // Navigate to the terms-of-service page
+  };
+
+  const handleNavigateToPrivacyPolicy = () => {
+    router.push("/privacy-policy"); // Navigate to the privacy-policy page
+  };
+
+  const handleBack = () => {
+    router.back(); // Go back to the previous page
+  };
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -63,6 +79,15 @@ export default function Signup() {
 
   return (
     <div>
+      {/* Back Button */}
+      <div
+        className="flex items-center mb-4 cursor-pointer"
+        onClick={handleBack}
+      >
+        <BACK_ARROW className="h-6 w-6 text-gray-700" />
+        <span className="ml-2 text-gray-700">Back</span>
+      </div>
+
       <h1>Sign Up</h1>
       <form onSubmit={handleSignup}>
         <input
@@ -83,6 +108,23 @@ export default function Signup() {
           {loading ? "Signing up..." : "Sign Up"}
         </button>
       </form>
+
+      <p className="mt-4 text-center text-tppBlack">
+        By proceeding, you agree to the <br />
+        <span
+          onClick={handleNavigateToTermsOfService} // Navigate to terms of service page on click
+          className="text-tppPink font-medium cursor-pointer ml-2 "
+        >
+          Terms of Service
+        </span>
+        and
+        <span
+          onClick={handleNavigateToPrivacyPolicy} // Navigate to privacy policy page on click
+          className="text-tppPink font-medium cursor-pointer ml-2 "
+        >
+          Privacy Policy
+        </span>
+      </p>
     </div>
   );
 }
