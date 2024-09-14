@@ -4,6 +4,7 @@ import { useState } from "react";
 import { supabase } from "../../lib/supabaseClient";
 import { useRouter } from "next/navigation";
 import BACK_ARROW from "@/public/images/BACK_ARROW.svg"; // Import the back arrow icon
+import GoogleSignInButton from "@/components/GoogleSignInButton"; // Import the GoogleSignInButton component
 
 export default function Signup() {
   const [email, setEmail] = useState("");
@@ -108,7 +109,7 @@ export default function Signup() {
           {loading ? "Signing up..." : "Sign Up"}
         </button>
       </form>
-
+      <GoogleSignInButton />
       <p className="mt-4 text-center text-tppBlack">
         By proceeding, you agree to the <br />
         <span
