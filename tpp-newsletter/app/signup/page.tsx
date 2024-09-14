@@ -21,7 +21,7 @@ export default function Signup() {
   };
 
   const handleBack = () => {
-    router.back(); // Go back to the previous page
+    router.push("/"); // Navigate to the home page (root URL)
   };
 
   const handleSignup = async (e: React.FormEvent) => {
