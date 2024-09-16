@@ -79,53 +79,60 @@ export default function Signup() {
   };
 
   return (
-    <div>
-      {/* Back Button */}
-      <div
-        className="flex items-center mb-4 cursor-pointer"
-        onClick={handleBack}
-      >
-        <BACK_ARROW className="h-6 w-6 text-gray-700" />
-        <span className="ml-2 text-gray-700">Back</span>
-      </div>
+    <div className="flex items-center justify-center z-50">
+      <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6 md:p-10 relative bg-tppWhite mx-10">
+        {" "}
+        <div>
+          {/* Back Button */}
+          <div
+            className="flex items-center mb-4 cursor-pointer"
+            onClick={handleBack}
+          >
+            <BACK_ARROW className="h-6 w-6 text-gray-700" />
+            <span className="ml-2 text-gray-700">Back</span>
+          </div>
 
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSignup}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit" disabled={loading}>
-          {loading ? "Signing up..." : "Sign Up"}
-        </button>
-      </form>
-      <GoogleSignInButton />
-      <p className="mt-4 text-center text-tppBlack">
-        By proceeding, you agree to the <br />
-        <span
-          onClick={handleNavigateToTermsOfService} // Navigate to terms of service page on click
-          className="text-tppPink font-medium cursor-pointer ml-2 "
-        >
-          Terms of Service
-        </span>
-        and
-        <span
-          onClick={handleNavigateToPrivacyPolicy} // Navigate to privacy policy page on click
-          className="text-tppPink font-medium cursor-pointer ml-2 "
-        >
-          Privacy Policy
-        </span>
-      </p>
+          <h1>Sign Up</h1>
+          <form onSubmit={handleSignup}>
+            <input
+              className="w-full p-2 mb-4 border rounded-lg text-tppBlack placeholder:text-tppNotSelectedGray focus:outline-tppPink duration-400"
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <input
+              className="w-full p-2 mb-4 border rounded-lg text-tppBlack placeholder:text-tppNotSelectedGray focus:outline-tppPink duration-400"
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <button type="submit" disabled={loading}>
+              {loading ? "Signing up..." : "Sign Up"}
+            </button>
+          </form>
+          <GoogleSignInButton />
+          <p className="mt-4 text-center text-tppBlack">
+            By proceeding, you agree to the <br />
+            <span
+              onClick={handleNavigateToTermsOfService} // Navigate to terms of service page on click
+              className="text-tppPink font-medium cursor-pointer ml-2 "
+            >
+              Terms of Service
+            </span>
+            and
+            <span
+              onClick={handleNavigateToPrivacyPolicy} // Navigate to privacy policy page on click
+              className="text-tppPink font-medium cursor-pointer ml-2 "
+            >
+              Privacy Policy
+            </span>
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
