@@ -30,27 +30,7 @@ export default function Signup() {
     e.preventDefault();
     setLoading(true);
 
-    // Step 1: Check if the username is already taken
-    const { data: existingUser, error: usernameCheckError } = await supabase
-      .from("users")
-      .select("username")
-      .eq("username", username)
-      .single(); // Expecting only one user with this username
-
-    if (usernameCheckError && usernameCheckError.code !== "PGRST116") {
-      console.error("Error checking username:", usernameCheckError.message);
-      setLoading(false);
-      return;
-    }
-
-    if (existingUser) {
-      console.error("Username already taken");
-      alert("Username is already taken. Please choose another one.");
-      setLoading(false);
-      return;
-    }
-
-    // Step 2: Sign up the user in Supabase authentication
+    // Step 1: Sign up the user in Supabase authentication
     const { data: signupData, error: signupError } = await supabase.auth.signUp(
       {
         email,
