@@ -7,6 +7,7 @@ import BACK_ARROW from "@/public/images/BACK_ARROW.svg"; // Import the back arro
 import GoogleSignInButton from "@/components/GoogleSignInButton"; // Import the GoogleSignInButton component
 
 export default function Signup() {
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -29,7 +30,27 @@ export default function Signup() {
     e.preventDefault();
     setLoading(true);
 
-    // Step 1: Sign up the user in Supabase authentication
+    // Step 1: Check if the username is already taken
+    const { data: existingUser, error: usernameCheckError } = await supabase
+      .from("users")
+      .select("username")
+      .eq("username", username)
+      .single(); // Expecting only one user with this username
+
+    if (usernameCheckError && usernameCheckError.code !== "PGRST116") {
+      console.error("Error checking username:", usernameCheckError.message);
+      setLoading(false);
+      return;
+    }
+
+    if (existingUser) {
+      console.error("Username already taken");
+      alert("Username is already taken. Please choose another one.");
+      setLoading(false);
+      return;
+    }
+
+    // Step 2: Sign up the user in Supabase authentication
     const { data: signupData, error: signupError } = await supabase.auth.signUp(
       {
         email,
@@ -46,7 +67,7 @@ export default function Signup() {
     const user = signupData?.user;
     console.log("Signed up user:", user);
 
-    // Step 2: Insert user details into the custom users table
+    // Step 3: Insert user details into the custom users table
     if (user) {
       const { data: insertData, error: insertError } = await supabase
         .from("users")
@@ -54,7 +75,7 @@ export default function Signup() {
           {
             id: user.id, // This is the ID from Supabase's auth system
             email: user.email,
-            username: user.email?.split("@")[0], // Example: use the email prefix as username
+            username, // Use the username from the state
             profile_picture_url: "", // Default or leave it null
             pattern_points: 0, // Default value
             is_buyer: false,
@@ -79,7 +100,7 @@ export default function Signup() {
   };
 
   return (
-    <div className="flex items-center justify-center z-50">
+    <div className="flex items-center justify-center min-h-screen">
       <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6 md:p-10 relative bg-tppWhite mx-10">
         {" "}
         <div>
@@ -91,11 +112,23 @@ export default function Signup() {
             <BACK_ARROW className="h-6 w-6 text-gray-700" />
             <span className="ml-2 text-gray-700">Back</span>
           </div>
+          <div className="font-space text-center">
+            <h1>Sign Up</h1>
+          </div>
 
-          <h1>Sign Up</h1>
-          <form onSubmit={handleSignup}>
+          <form className="text-center" onSubmit={handleSignup}>
             <input
               className="w-full p-2 mb-4 border rounded-lg text-tppBlack placeholder:text-tppNotSelectedGray focus:outline-tppPink duration-400"
+              id="username"
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+            <input
+              className="w-full p-2 mb-4 border rounded-lg text-tppBlack placeholder:text-tppNotSelectedGray focus:outline-tppPink duration-400"
+              id="email"
               type="email"
               placeholder="Email"
               value={email}
@@ -104,13 +137,18 @@ export default function Signup() {
             />
             <input
               className="w-full p-2 mb-4 border rounded-lg text-tppBlack placeholder:text-tppNotSelectedGray focus:outline-tppPink duration-400"
+              id="password"
               type="password"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-            <button type="submit" disabled={loading}>
+            <button
+              className="bg-tppPink px-5"
+              type="submit"
+              disabled={loading}
+            >
               {loading ? "Signing up..." : "Sign Up"}
             </button>
           </form>
