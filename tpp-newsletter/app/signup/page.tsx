@@ -7,7 +7,6 @@ import BACK_ARROW from "@/public/images/BACK_ARROW.svg"; // Import the back arro
 import GoogleSignInButton from "@/components/GoogleSignInButton"; // Import the GoogleSignInButton component
 
 export default function Signup() {
-  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -55,7 +54,6 @@ export default function Signup() {
           {
             id: user.id, // This is the ID from Supabase's auth system
             email: user.email,
-            username, // Use the username from the state
             profile_picture_url: "", // Default or leave it null
             pattern_points: 0, // Default value
             is_buyer: false,
@@ -97,15 +95,6 @@ export default function Signup() {
           </div>
 
           <form className="text-center" onSubmit={handleSignup}>
-            <input
-              className="w-full p-2 mb-4 border rounded-lg text-tppBlack placeholder:text-tppNotSelectedGray focus:outline-tppPink duration-400"
-              id="username"
-              type="text"
-              placeholder="Username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-            />
             <input
               className="w-full p-2 mb-4 border rounded-lg text-tppBlack placeholder:text-tppNotSelectedGray focus:outline-tppPink duration-400"
               id="email"
