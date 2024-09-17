@@ -47,7 +47,7 @@ export default function Signup() {
     const user = signupData?.user;
     console.log("Signed up user:", user);
 
-    // Step 3: Insert user details into the custom users table
+    // Step 2: Insert user details into the custom users table
     if (user) {
       const { data: insertData, error: insertError } = await supabase
         .from("users")
