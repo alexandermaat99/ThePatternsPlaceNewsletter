@@ -91,7 +91,7 @@ export default function Signup() {
             <span className="ml-2 text-gray-700">Back</span>
           </div>
           <div className="font-space text-center">
-            <h1>Sign Up</h1>
+            <h1>Sign Up Testing</h1>
           </div>
 
           <form className="text-center" onSubmit={handleSignup}>
