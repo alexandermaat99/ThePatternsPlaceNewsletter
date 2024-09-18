@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabaseClient";
+import GOOGLE_LOGO from "@/public/images/GOOGLE_LOGO.svg";
 
 export default function GoogleSignInButton() {
   const [loading, setLoading] = useState(false);
@@ -74,10 +75,11 @@ export default function GoogleSignInButton() {
   return (
     <button
       onClick={handleGoogleSignIn}
-      className="bg-tppPink text-white font-semibold py-2 px-4 rounded mt-4"
+      className="flex items-center justify-center w-full py-2 bg-tppWhite outline-none outline-tppBlack outline-1 rounded-[10px] text-tppBlack font-normal mb-4"
       disabled={loading}
     >
-      {loading ? "Signing in..." : "Sign in with Google"}
+      <GOOGLE_LOGO className="mr-2 " />{" "}
+      {loading ? "Signing in..." : "Continue with Google"}
     </button>
   );
 }
