@@ -10,7 +10,7 @@ export default function Home() {
       {<NewsletterForm />}
 
       {/* Add the LearnMoreButton for the signup page */}
-      <LearnMoreButton href={"/signup"} label={"Sign Up"} />
+      {/* <LearnMoreButton href={"/signup"} label={"Sign Up"} /> */}
 
       <LearnMoreButton
         href={"/about"}
