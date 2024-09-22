@@ -1,59 +1,37 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
-
-// Example images array (update with your actual images)
-const postImages = [
-  "/images/postImages/image1.webp",
-  "/images/postImages/image2.webp",
-  "/images/postImages/image3.webp",
-  "/images/postImages/image4.webp",
-  "/images/postImages/image5.webp",
-  "/images/postImages/image6.webp",
-];
-
-function ImageCarousel() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const nextImage = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === postImages.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  const prevImage = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? postImages.length - 1 : prevIndex - 1
-    );
-  };
-
-  return (
-    <div className="carousel">
-      <button onClick={prevImage}>Previous</button>
-      <Image
-        src={postImages[currentIndex]}
-        alt={`Post image ${currentIndex + 1}`}
-        width={500}
-        height={300}
-      />
-      <button onClick={nextImage}>Next</button>
-    </div>
-  );
-}
+const coverPhoto = "/images/postImages/image1.webp";
 
 function Post() {
   return (
-    <div>
-      <h1>Post Title</h1>
-      <ImageCarousel />
-      <p>Posted by: username</p>
-      <p>Price: $0.00</p>
-      <p>Difficulty: Easy</p>
-      <p>Categories: Category</p>
-      <p>Posted Date: 2022-01-01</p>
-      <p>Comments: 0</p>
-      <p>Likes: 0</p>
+    <div className="max-w-sm bg-white shadow-lg rounded-lg overflow-hidden">
+      <div className="p-4">
+        <div className="w-64 h-64 relative">
+          <Image
+            src={coverPhoto}
+            alt="Placeholder image"
+            fill
+            className="object-cover rounded-lg"
+          />
+        </div>
+        <h1 className="text-xl font-bold text-gray-800 p-4">Post Title</h1>
+        <p className="text-gray-600">
+          Posted by: <span className="font-semibold">username</span>
+        </p>
+        <p className="text-gray-600">
+          Price: <span className="font-semibold">$0.00</span>
+        </p>
+        <p className="text-gray-600">
+          Difficulty: <span className="font-semibold">Easy</span>
+        </p>
+        <p className="text-gray-600">
+          Comments: <span className="font-semibold">0</span>
+        </p>
+        <p className="text-gray-600">
+          Likes: <span className="font-semibold">0</span>
+        </p>
+      </div>
     </div>
   );
 }
