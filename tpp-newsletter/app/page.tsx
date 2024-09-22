@@ -16,6 +16,8 @@ export default function Home() {
         href={"/about"}
         label={"Learn more about The Pattern's Place"}
       />
+
+      <LearnMoreButton href={"/signup"} label={"Sign Up"} />
       {<Socials />}
     </main>
   );
