@@ -1,4 +1,4 @@
-"use client"; // This tells Next.js that this component runs on the client side
+"use client"; // Ensures this component is client-side only
 
 import { useState } from "react";
 import { useRouter } from "next/navigation"; // In Next.js 13+, use next/navigation
@@ -10,9 +10,12 @@ export default function LoginModal() {
   const [showModal, setShowModal] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const router = useRouter(); // Initialize the useRouter hook from next/navigation
 
+  // Handle Email/Password Login
   const handleLogin = async () => {
+    setLoading(true);
     const { error } = await supabase.auth.signInWithPassword({
       email,
       password,
@@ -20,14 +23,30 @@ export default function LoginModal() {
 
     if (error) {
       console.error("Login error:", error.message);
+      setLoading(false); // Stop loading spinner
     } else {
       setShowModal(false); // Close modal on success
+      router.push("/userCrud"); // Example: Redirect to dashboard after login
     }
   };
 
   // Function to navigate to signup page
   const handleNavigateToSignup = () => {
     router.push("/signup"); // Navigate to the signup page
+  };
+
+  // Handle Google login
+  const handleGoogleLogin = async () => {
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+    });
+
+    if (error) {
+      console.error("Google login error:", error.message);
+    } else {
+      setShowModal(false); // Close modal after successful Google login
+      router.push("/userCrud"); // Example: Redirect to dashboard after login
+    }
   };
 
   const isFormFilled = email && password;
@@ -61,7 +80,7 @@ export default function LoginModal() {
               The Pattern&apos;s Place
             </h1>
 
-            {/* tpp logo */}
+            {/* TPP logo */}
             <div className="flex justify-center mb-4">
               <TPP_SVG />
             </div>
@@ -71,7 +90,6 @@ export default function LoginModal() {
                 id="email"
                 type="email"
                 placeholder="Email"
-                // look at the newletter for better hover animation
                 className="w-full p-2 mb-4 border rounded-lg placeholder:text-tppNotSelectedGray text-tppBlack focus:outline-tppPink duration-400"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -92,9 +110,9 @@ export default function LoginModal() {
                     : "bg-tppUnSelectedPink text-tppPink font-bold font-space "
                 }`}
                 onClick={handleLogin}
-                disabled={!isFormFilled} // Disable button if fields are empty
+                disabled={!isFormFilled || loading} // Disable button if fields are empty or while loading
               >
-                Sign in
+                {loading ? "Signing in..." : "Sign in"}
               </button>
             </form>
 
@@ -109,8 +127,13 @@ export default function LoginModal() {
               </span>
             </p>
             <p className=" font-medium text-xl my-4 text-center">or</p>
-            <button className="flex items-center justify-center w-full py-2 bg-tppWhite outline-none outline-tppBlack outline-1 rounded-[10px] text-tppBlack font-normal mb-4">
-              <GOOGLE_LOGO className="mr-2 " />{" "}
+
+            {/* Google Sign-In */}
+            <button
+              className="flex items-center justify-center w-full py-2 bg-tppWhite outline-none outline-tppBlack outline-1 rounded-[10px] text-tppBlack font-normal mb-4"
+              onClick={handleGoogleLogin}
+            >
+              <GOOGLE_LOGO className="mr-2" />{" "}
               {/* Add some margin to the right of the logo */}
               Continue with Google
             </button>
