@@ -164,9 +164,9 @@ export default function CreatePost() {
 
     const post_id = postData?.[0]?.id; // Get the inserted post's ID
 
-    const categoryInserts = selectedCategories.map((categoryID) => ({
+    const categoryInserts = selectedCategories.map((category_id) => ({
       id: post_id,
-      categoryID,
+      category_id,
     }));
 
     const { error: categoryError } = await supabase
