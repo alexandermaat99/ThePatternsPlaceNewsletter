@@ -20,16 +20,18 @@ export default function Sandbox() {
   }, []);
 
   return (
-    <div className="container ">
+    <div className="relative">
       <TopNav />
-      <br />
-      {postId ? <UploadPhoto postId={postId} /> : <p>Loading...</p>}
-      <h1 className="text-4xl font-bold mb-6">Welcome to Our Platform</h1>
-      <LoginModal />
-      <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-5">
-        <PostPreview />
-        <PostPreview />
-        {/* Add more PostPreview components as needed */}
+      <div className="relative z-0">
+        <br />
+        {postId ? <UploadPhoto postId={postId} /> : <p>Loading...</p>}
+        <h1 className="text-4xl font-bold mb-6">Welcome to Our Platform</h1>
+        <LoginModal />
+        <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-5">
+          <PostPreview />
+          <PostPreview />
+          {/* Add more PostPreview components as needed */}
+        </div>
       </div>
     </div>
   );
