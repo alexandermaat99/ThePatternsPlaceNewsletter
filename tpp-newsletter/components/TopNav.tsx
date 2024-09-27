@@ -6,6 +6,7 @@ import profilePicTest from "@/public/images/ProfilePicTest.png";
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+//please work
 function TopNav() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
