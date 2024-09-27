@@ -17,7 +17,7 @@ export default function Home() {
         label={"Learn more about The Pattern's Place"}
       />
 
-      {/* <LearnMoreButton href={"/signup"} label={"Sign Up"} /> */}
+      <LearnMoreButton href={"/signup"} label={"Sign Up"} />
       {<Socials />}
     </main>
   );
