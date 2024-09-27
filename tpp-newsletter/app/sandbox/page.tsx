@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import LoginModal from "@/components/LoginModal";
 import PostPreview from "@/components/PostPreview";
 import UploadPhoto from "@/components/UploadPhoto";
+import TopNav from "@/components/TopNav";
 
 export default function Sandbox() {
   const [postId, setPostId] = useState<string | null>(null);
@@ -19,7 +20,9 @@ export default function Sandbox() {
   }, []);
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="container ">
+      <TopNav />
+      <br />
       {postId ? <UploadPhoto postId={postId} /> : <p>Loading...</p>}
       <h1 className="text-4xl font-bold mb-6">Welcome to Our Platform</h1>
       <LoginModal />
