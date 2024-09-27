@@ -37,7 +37,8 @@ function TopNav() {
   }, []);
 
   return (
-    <div className="px-4 md:px-16 flex justify-between w-full items-center py-4 bg-tppBackground text-tppBlack">
+    <div className="px-4 md:px-16 flex justify-between w-full items-center py-4 bg-tppBackground text-tppBlack fixed top-0 left-0 right-0 z-50">
+      {" "}
       <div className="flex items-center">
         <Link href="/sandbox">
           <TPP_SVG width={45} height={45} className="text-tppBlack" />
@@ -86,7 +87,7 @@ function TopNav() {
             animate={{ y: 0 }}
             exit={{ y: "100%" }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed bottom-0 left-0 right-0 bg-tppBackground border-t border-tppBlack p-4 md:hidden"
+            className="fixed bottom-0 left-0 right-0 bg-tppBackground border-t border-tppBlack p-4 md:hidden z-40"
           >
             <div className="flex flex-col items-end">
               <div className="mb-4">
