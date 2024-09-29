@@ -5,22 +5,27 @@ import { usePathname } from "next/navigation";
 import profilePicTest from "@/public/images/ProfilePicTest.png";
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { User } from "@supabase/supabase-js"; // Make sure to import User type
+import { supabase } from "@/lib/supabaseClient"; // Import supabase client
+import LoginModal from "./LoginModal";
 
-//please work
 function TopNav() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
-
-  const isLinkActive = (href: string) => {
-    return pathname === href ? "font-bold" : "";
-  };
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
+    // Fetch the current user from Supabase
+    const fetchUser = async () => {
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+      setUser(user);
+    };
+    fetchUser();
+
+    // Attach click listener to handle menu click outside
     const handleClickOutside = (event: MouseEvent) => {
       if (
         menuRef.current &&
@@ -35,6 +40,14 @@ function TopNav() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  const isLinkActive = (href: string) => {
+    return pathname === href ? "font-bold" : "";
+  };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <div className="px-4 md:px-16 flex justify-between w-full items-center py-4 bg-tppBackground text-tppBlack">
@@ -68,15 +81,21 @@ function TopNav() {
             Sell
           </h1>
         </Link>
-        <h1 className="text-tppBlack">
-          Pattern&apos;s Points:{" "}
-          <span className="text-tppPink font-extrabold">15</span>
-        </h1>
-        <Image
-          src={profilePicTest}
-          alt="Profile Picture"
-          className="w-10 h-10 rounded-full"
-        />
+        {user ? (
+          <>
+            <h1 className="text-tppBlack">
+              Pattern&apos;s Points:{" "}
+              <span className="text-tppPink font-extrabold">15</span>
+            </h1>
+            <Image
+              src={profilePicTest}
+              alt="Profile Picture"
+              className="w-10 h-10 rounded-full"
+            />
+          </>
+        ) : (
+          <LoginModal />
+        )}
       </div>
       <AnimatePresence>
         {isMenuOpen && (
@@ -89,13 +108,25 @@ function TopNav() {
             className="fixed bottom-0 left-0 right-0 bg-tppBackground border-t border-tppBlack p-4 md:hidden"
           >
             <div className="flex flex-col items-end">
-              <div className="mb-4">
-                <Image
-                  src={profilePicTest}
-                  alt="Profile Picture"
-                  className="w-12 h-12 rounded-full"
-                />
-              </div>
+              {user ? (
+                <>
+                  <div className="mb-4">
+                    <Image
+                      src={profilePicTest}
+                      alt="Profile Picture"
+                      className="w-12 h-12 rounded-full"
+                    />
+                  </div>
+                  <h1 className="text-tppBlack py-2 text-right">
+                    Pattern&apos;s Points:{" "}
+                    <span className="text-tppPink font-extrabold">15</span>
+                  </h1>
+                </>
+              ) : (
+                <div className="w-full text-right mb-4">
+                  <LoginModal />
+                </div>
+              )}
               <Link href="/browse-patterns" className="w-full text-right">
                 <h1
                   className={`text-tppBlack hover:font-bold ${isLinkActive(
@@ -114,10 +145,6 @@ function TopNav() {
                   Sell
                 </h1>
               </Link>
-              <h1 className="text-tppBlack py-2 text-right">
-                Pattern&apos;s Points:{" "}
-                <span className="text-tppPink font-extrabold">15</span>
-              </h1>
             </div>
           </motion.div>
         )}

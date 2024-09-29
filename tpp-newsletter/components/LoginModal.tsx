@@ -26,7 +26,7 @@ export default function LoginModal() {
       setLoading(false); // Stop loading spinner
     } else {
       setShowModal(false); // Close modal on success
-      router.push("/userCrud"); // Example: Redirect to dashboard after login
+      router.push("/sandbox"); // Example: Redirect to dashboard after login
     }
   };
 
@@ -45,7 +45,7 @@ export default function LoginModal() {
       console.error("Google login error:", error.message);
     } else {
       setShowModal(false); // Close modal after successful Google login
-      router.push("/userCrud"); // Example: Redirect to dashboard after login
+      router.push("/sandbox"); // Example: Redirect to dashboard after login
     }
   };
 
