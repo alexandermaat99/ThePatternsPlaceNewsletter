@@ -5,6 +5,8 @@ import LoginModal from "@/components/LoginModal";
 import PostPreview from "@/components/PostPreview";
 import UploadPhoto from "@/components/UploadPhoto";
 import TopNav from "@/components/TopNav";
+import LoginButton from "@/components/LoginLogoutButton";
+import UserGreetText from "@/components/UserGreetText";
 
 export default function Sandbox() {
   const [postId, setPostId] = useState<string | null>(null);
@@ -21,6 +23,8 @@ export default function Sandbox() {
 
   return (
     <div className="relative">
+      <LoginButton />
+      <UserGreetText />
       <TopNav />
       <div className="relative z-0">
         <br />
