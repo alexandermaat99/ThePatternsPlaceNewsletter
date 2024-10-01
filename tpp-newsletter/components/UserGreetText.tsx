@@ -21,6 +21,7 @@ const UserGreetText = () => {
         hello&nbsp;
         <code className="font-mono font-bold">
           {user.user_metadata.full_name ?? "user"}!
+          {user.user_metadata.email ?? "email"}
         </code>
       </p>
     );
