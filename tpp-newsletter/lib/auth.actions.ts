@@ -69,11 +69,11 @@ export async function signInWithGoogle() {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: "google",
     options: {
+      redirectTo: "https://www.thepatternsplace.com/sandbox",
       queryParams: {
         access_type: "offline",
         prompt: "consent",
       },
-      redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/sandbox`, // Make sure to set the correct environment variable or use the appropriate URL here
     },
   });
 
