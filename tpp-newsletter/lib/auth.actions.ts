@@ -73,6 +73,7 @@ export async function signInWithGoogle() {
         access_type: "offline",
         prompt: "consent",
       },
+      redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL}/sandbox`, // Make sure to set the correct environment variable or use the appropriate URL here
     },
   });
 
