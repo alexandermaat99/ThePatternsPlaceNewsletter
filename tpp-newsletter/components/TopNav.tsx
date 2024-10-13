@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { User } from "@supabase/supabase-js"; // Make sure to import User type
 import { supabase } from "@/lib/supabaseClient"; // Import supabase client
 import LoginModal from "./LoginModal";
-import LoginButton from "./LoginLogoutButton";
+// import LoginButton from "./LoginLogoutButton";
 
 function TopNav() {
   const pathname = usePathname();
@@ -95,7 +95,7 @@ function TopNav() {
             />
           </>
         ) : (
-          <LoginButton />
+          <LoginModal />
         )}
       </div>
       <AnimatePresence>
