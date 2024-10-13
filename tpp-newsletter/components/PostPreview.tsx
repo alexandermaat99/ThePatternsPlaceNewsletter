@@ -10,6 +10,8 @@ function Post() {
         <div className="w-64 h-64 relative">
           <Image
             src={coverPhoto}
+            // figure out the dimensions of the image
+            // figure out how to pull image from the database
             alt="Placeholder image"
             fill
             className="object-cover rounded-lg"
