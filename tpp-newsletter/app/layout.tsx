@@ -1,11 +1,16 @@
 import { Space_Grotesk } from "next/font/google";
 import { Metadata } from "next";
 import { metaData } from "@/constants";
-import Head from "next/head";
 
 import "./globals.css";
 
-export const metadata: Metadata = metaData;
+// Metadata including the favicon
+export const metadata: Metadata = {
+  ...metaData,
+  icons: {
+    icon: "/favicon.ico", // Path to your favicon
+  },
+};
 
 // Load Google Font: Space Grotesk
 const spaceGrotesk = Space_Grotesk({
@@ -21,9 +26,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Head>
-        <link rel="icon" href="favicon.ico" /> {/* Or your favicon path */}
-      </Head>
       <body className={`${spaceGrotesk.variable} antialiased`}>{children}</body>
     </html>
   );
